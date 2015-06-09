@@ -7,7 +7,22 @@ $ git push origin master					# 以后把本地库的内容推送到远程
 $ git clone git@github.com:michaelliao/gitskills.git
 
 2.分支管理
-HEAD严格来说不是指向提交，而是指向master，master才是指向提交的，所以，HEAD指向的就是当前分支。
+1).HEAD严格来说不是指向提交，而是指向master，master才是指向提交的，所以，HEAD指向的就是当前分支。
+$ git checkout -b dev				# 创建dev分支，然后切换到dev分支,相当于以下两条命令
+$ git branch dev				# 创建分支dev
+$ git checkout dev				# 切换到dev分支
+$ git branch					# 查看分支
+$ git merge dev					# 将dev分支合并到当前分支
+$ git branch -d dev				# 删除分支
+2).解决冲突                                     
+$ git merge dev 				# 在执行合并时会提示是否冲突，冲突后会对文件进行合并，然后需要进行手工处理
+						# Git用<<<<<<<，=======，>>>>>>>标记出不同分支的内容
+						# 用git log --graph 命令可以看到分支合并图。
+$ git merge --no-ff -m "merge with no-ff" dev	# 强制禁用Fast forward模式，Git就会在merge时生成一个新的commit，
+						# 这样，从分支历史上就可以看出分支信息
+
+
+
 
 
 
